@@ -8,3 +8,7 @@ hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
 hanoi n src dst tmp
   | n <= 0 = []
   | otherwise = hanoi (n - 1) src tmp dst ++ [(src, dst)] ++ hanoi (n - 1) tmp dst src
+
+-- Exercise 6
+
+-- Not implemented yet
