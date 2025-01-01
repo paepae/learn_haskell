@@ -48,7 +48,17 @@ inOrder Leaf = []
 inOrder (Node lTree logMsg rTree) = (inOrder lTree) ++ [logMsg] ++ (inOrder rTree)
 
 -- Exercise 5
--- Not implemented yet
+
+sevAtLeast :: Int -> LogMessage -> Bool
+sevAtLeast n (LogMessage (Error sev) _ _) = sev >= n
+sevAtLeast _ _ = False
+
+getMsg :: LogMessage -> String
+getMsg (LogMessage _ _ msg) = msg
+getMsg _ = ""
+
+whatWentWrong :: [LogMessage] -> [String]
+whatWentWrong = map (getMsg) . (filter (sevAtLeast 50)) . inOrder . build
 
 -- Exercise 6
 -- Not implemented yet
