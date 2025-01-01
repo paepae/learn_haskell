@@ -33,10 +33,13 @@ insert logMsg@(LogMessage _ ts _) msgTree =
           then
             Node (insert logMsg lTree) nodeLogMsg rTree
           else
-            Node rTree nodeLogMsg (insert logMsg lTree)
+            Node lTree nodeLogMsg (insert logMsg rTree)
 
 -- Exercise 3
--- Not implemented yet
+
+build :: [LogMessage] -> MessageTree
+build [] = Leaf
+build (x : xs) = insert x (build xs)
 
 -- Exercise 4
 -- Not implemented yet
