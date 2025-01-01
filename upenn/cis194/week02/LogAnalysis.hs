@@ -59,6 +59,3 @@ getMsg _ = ""
 
 whatWentWrong :: [LogMessage] -> [String]
 whatWentWrong = map (getMsg) . (filter (sevAtLeast 50)) . inOrder . build
-
--- Exercise 6
--- Not implemented yet
