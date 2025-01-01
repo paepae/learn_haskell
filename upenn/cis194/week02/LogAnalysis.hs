@@ -58,4 +58,4 @@ getMsg (LogMessage _ _ msg) = msg
 getMsg _ = ""
 
 whatWentWrong :: [LogMessage] -> [String]
-whatWentWrong = map (getMsg) . filter (sevAtLeast 50) . inOrder . build
+whatWentWrong = map getMsg . filter (sevAtLeast 50) . inOrder . build
