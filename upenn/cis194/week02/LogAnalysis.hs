@@ -20,7 +20,20 @@ parse :: String -> [LogMessage]
 parse = map parseMessage . lines
 
 -- Exercise 2
--- Not implemented yet
+
+insert :: LogMessage -> MessageTree -> MessageTree
+insert (Unknown _) msgTree = msgTree
+insert logMsg@(LogMessage _ ts _) msgTree =
+  case msgTree of
+    Leaf -> Node Leaf logMsg Leaf
+    (Node lTree nodeLogMsg rTree) -> case nodeLogMsg of
+      (Unknown _) -> msgTree
+      (LogMessage _ nodeTs _) ->
+        if ts < nodeTs
+          then
+            Node (insert logMsg lTree) nodeLogMsg rTree
+          else
+            Node rTree nodeLogMsg (insert logMsg lTree)
 
 -- Exercise 3
 -- Not implemented yet
