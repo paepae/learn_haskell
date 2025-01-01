@@ -42,7 +42,10 @@ build [] = Leaf
 build (x : xs) = insert x (build xs)
 
 -- Exercise 4
--- Not implemented yet
+
+inOrder :: MessageTree -> [LogMessage]
+inOrder Leaf = []
+inOrder (Node lTree logMsg rTree) = (inOrder lTree) ++ [logMsg] ++ (inOrder rTree)
 
 -- Exercise 5
 -- Not implemented yet
