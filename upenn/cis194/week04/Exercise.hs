@@ -22,25 +22,25 @@ fun2 n
 -- Not implemented yet
 
 -- foldTree :: [a] -> Tree a
--- foldTree = 
+-- foldTree =
 
 -- Exercise 3
 
 xor :: [Bool] -> Bool
-xor = foldr (\_ s -> not s ) False . filter (==True)
+xor = foldr (\_ s -> not s) False . filter (== True)
 
 map' :: (a -> b) -> [a] -> [b]
 map' f = foldr (\x acc -> (f x) : acc) []
 
 -- Not implemented yet
 -- myFoldl :: (a -> b -> a) -> a -> [b] -> a
--- myFoldl f base xs = foldr 
+-- myFoldl f base xs = foldr
 
 -- Exercise 4
 -- Not implemented yet
 
 cartProd :: [a] -> [b] -> [(a, b)]
-cartProd xs ys = [(x,y) | x <- xs, y <- ys]
+cartProd xs ys = [(x, y) | x <- xs, y <- ys]
 
 -- sieveSundaram :: Integer -> [Integer]
 -- sieveSundaram =
